@@ -579,4 +579,204 @@ body:has(.biolink-page) {
   transform: translateY(0);
 }
 
+/* Site Contact Units with Direct WhatsApp + Map Chip */
+.location-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.location-item:first-child {
+  padding-top: 0;
+}
+
+.location-main-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  color: #ffffff;
+  transition: padding-left 0.25s ease;
+}
+
+.location-main-link:hover {
+  padding-left: 8px;
+}
+
+.location-wa-icon {
+  color: #27d07f;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.location-main-link:hover .location-wa-icon {
+  transform: scale(1.15);
+}
+
+.location-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.location-tag {
+  display: block;
+  font-family: monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #f5ae62;
+  margin-bottom: 2px;
+}
+
+.location-text h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #ffffff;
+}
+
+.location-phone {
+  display: block;
+  font-size: 11px;
+  color: #c5c9c8;
+  margin-top: 4px;
+}
+
+.location-arrow {
+  color: #c5c9c8;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.location-main-link:hover .location-arrow {
+  transform: translate(2px, -2px);
+  color: #ffffff;
+}
+
+.location-map-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #d8dee8;
+  font-size: 11px;
+  text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: all 0.22s ease;
+}
+
+.location-map-chip:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+/* Biolink Units with Direct WhatsApp + Map Chip */
+.biolink-unit-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: clamp(12px, 1.6vh, 16px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.biolink-unit-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+  color: #ffffff;
+  transition: padding-left 0.25s ease;
+}
+
+.biolink-unit-main:hover {
+  padding-left: 8px;
+}
+
+.biolink-unit-icon {
+  color: #27d07f;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.biolink-unit-main:hover .biolink-unit-icon {
+  transform: scale(1.15);
+}
+
+.biolink-unit-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.biolink-unit-tag {
+  display: block;
+  font-family: monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--amber);
+  margin-bottom: 2px;
+}
+
+.biolink-unit-title {
+  font-size: clamp(14px, 1.8vh, 16px);
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.biolink-unit-meta {
+  display: block;
+  font-size: clamp(9.5px, 1.2vh, 11px);
+  color: #a2abbb;
+  margin-top: 3px;
+}
+
+.biolink-unit-arrow {
+  color: #a2abbb;
+  flex-shrink: 0;
+  margin-right: 4px;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.biolink-unit-main:hover .biolink-unit-arrow {
+  transform: translate(2px, -2px);
+  color: #ffffff;
+}
+
+.biolink-map-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #d0d7e2;
+  font-size: 11px;
+  text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: all 0.22s ease;
+}
+
+.biolink-map-chip:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
 

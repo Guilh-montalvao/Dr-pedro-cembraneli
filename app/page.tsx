@@ -14,8 +14,11 @@ import {
   Hospital,
 } from 'lucide-react';
 
-const WHATSAPP_URL =
-  'https://wa.me/5562999615559?text=Ol%C3%A1%2C%20Dr.%20Pedro!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento%20de%20consulta.';
+const WHATSAPP_NEURO_NUCLEO_URL =
+  'https://wa.me/5562998361506?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento%20de%20consulta%20com%20o%20Dr.%20Pedro%20Cembraneli%20no%20Neuro%20N%C3%BAcleo%20Goi%C3%A2nia.';
+
+const WHATSAPP_SANTA_MONICA_URL =
+  'https://wa.me/5562999615559?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento%20de%20consulta%20com%20o%20Dr.%20Pedro%20Cembraneli%20no%20Hospital%20Santa%20M%C3%B4nica.';
 
 function WhatsAppIcon({ size = 20, className = '' }: { size?: number; className?: string }) {
   return (
@@ -322,14 +325,12 @@ export default function Home() {
           </span>
           <a
             className="header-contact"
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contato"
             aria-label="Atendimento rápido pelo WhatsApp"
           >
             <WhatsAppIcon size={16} />
             <span>WhatsApp</span>
-            <ArrowUpRight size={14} />
+            <ArrowDown size={14} />
           </a>
           <button
             onClick={() => setMenu(!menu)}
@@ -511,17 +512,13 @@ export default function Home() {
               </div>
               <p className="procedure-note">{active.procedures}</p>
               <a
-                href={`https://wa.me/5562999615559?text=${encodeURIComponent(
-                  `Olá, Dr. Pedro! Gostaria de conversar sobre o meu caso na área de ${active.name}.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contato"
                 className="blue-link"
                 data-anim="up"
                 data-delay="360"
               >
                 <WhatsAppIcon size={16} />
-                Conversar sobre meu caso no WhatsApp <ArrowUpRight size={18} />
+                Agendar consulta ou tirar dúvidas <ArrowDown size={16} />
               </a>
             </div>
           </div>
@@ -728,62 +725,72 @@ export default function Home() {
                 <br />
                 consultar a agenda do Dr. Pedro.
                 <small>
-                  Confirme diretamente o endereço, os horários
-                  <br />e a disponibilidade de atendimento.
+                  Escolha a unidade mais conveniente para o seu atendimento.
+                  <br />
+                  Fale diretamente pelo WhatsApp do local desejado ou confira o mapa de acesso.
                 </small>
               </p>
-
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-direct-link"
-                data-anim="up"
-                data-delay="220"
-              >
-                <div className="contact-direct-content">
-                  <span className="contact-direct-tag">
-                    <WhatsAppIcon size={14} />
-                    CANAL DE AGENDAMENTO
-                  </span>
-                  <strong className="contact-direct-title">Falar pelo WhatsApp</strong>
-                  <span className="contact-direct-meta">(62) 99961-5559 · Consultas e dúvidas</span>
-                </div>
-                <ArrowUpRight size={22} className="contact-direct-arrow" />
-              </a>
             </div>
 
             <div className="locations" data-anim="right" data-delay="200">
               {[
-                ['Neuro Núcleo Goiânia', 'Goiânia, GO', 'Neuro Núcleo Goiânia'],
-                ['Hospital Santa Mônica', 'Aparecida de Goiânia, GO', 'Hospital Santa Mônica Aparecida de Goiânia'],
-              ].map(([name, city, query], i) => (
-                <a
-                  key={name}
-                  href={'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                {
+                  tag: 'GOIÂNIA, GO',
+                  name: 'Neuro Núcleo Goiânia',
+                  phone: '(62) 99836-1506',
+                  waUrl: WHATSAPP_NEURO_NUCLEO_URL,
+                  mapUrl: 'https://www.google.com/maps/search/?api=1&query=Neuro%20N%C3%BAcleo%20Goi%C3%A2nia',
+                },
+                {
+                  tag: 'APARECIDA DE GOIÂNIA, GO',
+                  name: 'Hospital Santa Mônica',
+                  phone: '(62) 9961-5559',
+                  waUrl: WHATSAPP_SANTA_MONICA_URL,
+                  mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital%20Santa%20M%C3%B4nica%20Aparecida%20de%20Goi%C3%A2nia',
+                },
+              ].map((unit, i) => (
+                <div
+                  key={unit.name}
+                  className="location-item"
                   data-anim="right"
                   data-delay={String(240 + i * 80)}
                 >
-                  <MapPin size={20} />
-                  <div>
-                    <h3>{name}</h3>
-                    <span>{city} · Localizar unidade</span>
-                  </div>
-                  <ArrowUpRight size={21} />
-                </a>
+                  <a
+                    href={unit.waUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="location-main-link"
+                    aria-label={`Agendar via WhatsApp no ${unit.name}`}
+                  >
+                    <WhatsAppIcon size={22} className="location-wa-icon" />
+                    <div className="location-text">
+                      <span className="location-tag">{unit.tag}</span>
+                      <h3>{unit.name}</h3>
+                      <span className="location-phone">{unit.phone} · Falar no WhatsApp</span>
+                    </div>
+                    <ArrowUpRight size={20} className="location-arrow" />
+                  </a>
+                  <a
+                    href={unit.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="location-map-chip"
+                    title={`Ver localização de ${unit.name} no Google Maps`}
+                    aria-label={`Ver mapa de ${unit.name}`}
+                  >
+                    <MapPin size={13} />
+                    <span>Ver mapa</span>
+                  </a>
+                </div>
               ))}
             </div>
           </div>
         </section>
       </main>
 
-      {/* Floating WhatsApp Action Button */}
+      {/* Floating Action Button */}
       <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#contato"
         className="floating-whatsapp"
         aria-label="Falar no WhatsApp com a equipe do Dr. Pedro Cembraneli"
       >

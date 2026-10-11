@@ -16,8 +16,11 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP_URL =
-  'https://wa.me/5562999615559?text=Ol%C3%A1%2C%20Dr.%20Pedro!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento%20de%20consulta.';
+const WHATSAPP_NEURO_NUCLEO_URL =
+  'https://wa.me/5562998361506?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento%20de%20consulta%20com%20o%20Dr.%20Pedro%20Cembraneli%20no%20Neuro%20N%C3%BAcleo%20Goi%C3%A2nia.';
+
+const WHATSAPP_SANTA_MONICA_URL =
+  'https://wa.me/5562999615559?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento%20de%20consulta%20com%20o%20Dr.%20Pedro%20Cembraneli%20no%20Hospital%20Santa%20M%C3%B4nica.';
 
 function WhatsAppIcon({ size = 20, className = '' }: { size?: number; className?: string }) {
   return (
@@ -66,61 +69,75 @@ export default function LinksPage() {
             </h1>
 
             <p className="biolink-desc">
-              Confirme diretamente o endereço, os horários e a disponibilidade de atendimento.
+              Escolha a unidade mais conveniente para iniciar seu agendamento no WhatsApp:
             </p>
           </header>
 
           {/* Links List — Exact Hairline Rows */}
           <nav className="biolink-links" aria-label="Canais de atendimento e links diretos">
-            {/* WhatsApp Direct Row */}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-direct-link"
-            >
-              <div className="contact-direct-content">
-                <span className="contact-direct-tag">
-                  <WhatsAppIcon size={14} />
-                  CANAL DE AGENDAMENTO
-                </span>
-                <strong className="contact-direct-title">Falar pelo WhatsApp</strong>
-                <span className="contact-direct-meta">
-                  (62) 99961-5559 · Consultas e dúvidas
-                </span>
-              </div>
-              <ArrowUpRight size={22} className="contact-direct-arrow" />
-            </a>
+            {/* Unidade Neuro Núcleo Goiânia */}
+            <div className="biolink-unit-item">
+              <a
+                href={WHATSAPP_NEURO_NUCLEO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="biolink-unit-main"
+                aria-label="Agendar via WhatsApp no Neuro Núcleo Goiânia"
+              >
+                <WhatsAppIcon size={20} className="biolink-unit-icon" />
+                <div className="biolink-unit-info">
+                  <span className="biolink-unit-tag">GOIÂNIA, GO</span>
+                  <h3 className="biolink-unit-title">Neuro Núcleo Goiânia</h3>
+                  <span className="biolink-unit-meta">
+                    (62) 99836-1506 · Agendar no WhatsApp
+                  </span>
+                </div>
+                <ArrowUpRight size={18} className="biolink-unit-arrow" aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Neuro%20N%C3%BAcleo%20Goi%C3%A2nia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="biolink-map-chip"
+                title="Localizar Neuro Núcleo Goiânia no Google Maps"
+                aria-label="Ver localização do Neuro Núcleo no Google Maps"
+              >
+                <MapPin size={13} aria-hidden="true" />
+                <span>Mapa</span>
+              </a>
+            </div>
 
-            {/* Unidade Goiânia */}
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Neuro%20N%C3%BAcleo%20Goi%C3%A2nia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="biolink-location-row"
-            >
-              <MapPin size={20} aria-hidden="true" />
-              <div>
-                <h3>Neuro Núcleo Goiânia</h3>
-                <span>Goiânia, GO · Localizar unidade</span>
-              </div>
-              <ArrowUpRight size={21} aria-hidden="true" />
-            </a>
-
-            {/* Unidade Hospital Santa Mônica (Aparecida de Goiânia) */}
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Hospital%20Santa%20M%C3%B4nica%20Aparecida%20de%20Goi%C3%A2nia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="biolink-location-row"
-            >
-              <MapPin size={20} aria-hidden="true" />
-              <div>
-                <h3>Hospital Santa Mônica</h3>
-                <span>Aparecida de Goiânia, GO · Localizar unidade</span>
-              </div>
-              <ArrowUpRight size={21} aria-hidden="true" />
-            </a>
+            {/* Unidade Hospital Santa Mônica */}
+            <div className="biolink-unit-item">
+              <a
+                href={WHATSAPP_SANTA_MONICA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="biolink-unit-main"
+                aria-label="Agendar via WhatsApp no Hospital Santa Mônica"
+              >
+                <WhatsAppIcon size={20} className="biolink-unit-icon" />
+                <div className="biolink-unit-info">
+                  <span className="biolink-unit-tag">APARECIDA DE GOIÂNIA, GO</span>
+                  <h3 className="biolink-unit-title">Hospital Santa Mônica</h3>
+                  <span className="biolink-unit-meta">
+                    (62) 9961-5559 · Agendar no WhatsApp
+                  </span>
+                </div>
+                <ArrowUpRight size={18} className="biolink-unit-arrow" aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Hospital%20Santa%20M%C3%B4nica%20Aparecida%20de%20Goi%C3%A2nia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="biolink-map-chip"
+                title="Localizar Hospital Santa Mônica no Google Maps"
+                aria-label="Ver localização do Hospital Santa Mônica no Google Maps"
+              >
+                <MapPin size={13} aria-hidden="true" />
+                <span>Mapa</span>
+              </a>
+            </div>
 
             {/* Site Oficial */}
             <a
@@ -184,7 +201,7 @@ export default function LinksPage() {
 
       {/* Floating WhatsApp Action Button */}
       <a
-        href={WHATSAPP_URL}
+        href={WHATSAPP_NEURO_NUCLEO_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="floating-whatsapp"
