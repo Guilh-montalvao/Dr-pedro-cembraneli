@@ -5,6 +5,7 @@ import {
   MapPin,
   FileText,
 } from 'lucide-react';
+import ShareButton from './share-button';
 
 export const metadata: Metadata = {
   title: 'Dr. Pedro Cembraneli | Links e Contato',
@@ -45,6 +46,7 @@ export default function LinksPage() {
             className="biolink-banner-img"
           />
           <div className="biolink-banner-overlay" />
+          <ShareButton />
         </div>
 
         <div className="biolink-container">
@@ -101,6 +103,21 @@ export default function LinksPage() {
               <div>
                 <h3>Neuro Núcleo Goiânia</h3>
                 <span>Goiânia, GO · Localizar unidade</span>
+              </div>
+              <ArrowUpRight size={21} aria-hidden="true" />
+            </a>
+
+            {/* Unidade Hospital Santa Mônica (Aparecida de Goiânia) */}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Hospital%20Santa%20M%C3%B4nica%20Aparecida%20de%20Goi%C3%A2nia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="biolink-location-row"
+            >
+              <MapPin size={20} aria-hidden="true" />
+              <div>
+                <h3>Hospital Santa Mônica</h3>
+                <span>Aparecida de Goiânia, GO · Localizar unidade</span>
               </div>
               <ArrowUpRight size={21} aria-hidden="true" />
             </a>

@@ -3,12 +3,15 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowUpRight,
+  ArrowUp,
   ArrowDown,
   Plus,
   Minus,
   Menu,
   X,
   MapPin,
+  Stethoscope,
+  Hospital,
 } from 'lucide-react';
 
 const WHATSAPP_URL =
@@ -367,17 +370,6 @@ export default function Home() {
             <ArrowUpRight />
           </a>
         ))}
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="menu-whatsapp-link"
-          onClick={() => setMenu(false)}
-        >
-          <WhatsAppIcon size={18} />
-          <span>Falar no WhatsApp</span>
-          <ArrowUpRight size={15} />
-        </a>
         <p>
           Dr. Pedro Nogarotto Cembraneli
           <br />
@@ -632,12 +624,12 @@ export default function Home() {
                     <br />
                     São José do Rio Preto, SP
                   </p>
-                  <ArrowUpRight size={20} />
+                  <Stethoscope size={22} className="education-icon" aria-hidden="true" />
                 </article>
                 <article data-anim="up" data-delay="280">
                   <h3>Hospital Santa Mônica</h3>
                   <p>Residência Médica em Neurocirurgia</p>
-                  <ArrowUpRight size={20} />
+                  <Hospital size={22} className="education-icon" aria-hidden="true" />
                 </article>
               </div>
 
@@ -720,14 +712,13 @@ export default function Home() {
         <section id="contato" className="contact">
           <div className="contact-top" data-anim="down">
             <span className="label">VAMOS CONVERSAR</span>
-            <span>GOIÂNIA, GO</span>
+            <span>GOIÂNIA & APARECIDA DE GOIÂNIA</span>
           </div>
 
           <h2 data-anim="left" data-delay="100">
             Seu próximo
             <br />
             passo <span>começa aqui.</span>
-            <ArrowUpRight aria-hidden="true" />
           </h2>
 
           <div className="contact-bottom">
@@ -765,6 +756,7 @@ export default function Home() {
             <div className="locations" data-anim="right" data-delay="200">
               {[
                 ['Neuro Núcleo Goiânia', 'Goiânia, GO', 'Neuro Núcleo Goiânia'],
+                ['Hospital Santa Mônica', 'Aparecida de Goiânia, GO', 'Hospital Santa Mônica Aparecida de Goiânia'],
               ].map(([name, city, query], i) => (
                 <a
                   key={name}
@@ -816,7 +808,7 @@ export default function Home() {
           CRM-GO 26.326 | RQE 21.882
         </p>
         <a href="#inicio">
-          Voltar ao topo <ArrowUpRight size={17} />
+          Voltar ao topo <ArrowUp size={16} />
         </a>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Dr. Pedro Cembraneli</span>
