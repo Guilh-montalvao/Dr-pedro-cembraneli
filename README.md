@@ -19,12 +19,13 @@ O projeto usa React, TypeScript e Tailwind, com estrutura App Router do Next.js 
 
 ## Arquivos principais
 
-- app/page.tsx: conteúdo e interações.
-- app/globals.css: estilos, paleta e animações.
-- app/layout.tsx: metadados e estrutura.
+- app/page.tsx: página principal do site (conteúdo, biografia, especialidades e contato).
+- app/links/page.tsx: página de bio link (/links) com cabeçalho full-bleed, avatar e canais de contato.
+- app/globals.css: estilos, paleta e animações do site e do bio link.
+- app/layout.tsx: metadados e estrutura raiz.
 - public/images/: fotografias e logo PNG transparente.
 - scripts/inline-styles.mjs: gera os estilos incorporados ao HTML, executado automaticamente no início do desenvolvimento e do build.
-- app/styles.generated.ts: arquivo gerado; edite globals.css, não este arquivo.
+- app/styles.generated.ts: estilos críticos gerados automaticamente.
 - pnpm-lock.yaml: versões das dependências.
 
 O ZIP não inclui node_modules, credenciais, histórico Git nem caches locais. O manifesto .openai/hosting.json identifica o site já existente; não o use para substituir outro projeto.
